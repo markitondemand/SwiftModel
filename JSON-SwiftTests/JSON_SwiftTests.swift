@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import JSON_Swift
+@testable import MarkitDigitalJSON
 
 class JSON_SwiftTests: XCTestCase {
     
@@ -21,10 +21,35 @@ class JSON_SwiftTests: XCTestCase {
         super.tearDown()
     }
     
-    func testThrowsMissingRequiredKey() {
+    func testNoError() {
+        let json = ["backColor": "Red", "size": 52] as [String : Any]
+        
+        let card: Card
+        do {
+            card = try Card(json: json)
+        }
+        catch {
+            XCTFail("caught an error - \(error)")
+            return
+        }
         
         
-//        XCTAssert(<#T##expression: Bool##Bool#>)
+        XCTAssertEqual(card.backColor, "Red")
+        XCTAssertEqual(card.deckSize, 52)
     }
     
+    func testThrowsMissingRequiredKey() {
+    }
+}
+
+class Card {
+    // Optional
+    let backColor: String?
+    // Non optional
+    let deckSize: Int
+    
+    init(json: Dictionary<String, Any>) throws {
+        backColor = json.extractOptional(key: "backColor")
+        deckSize = try json.extract(key: "size")
+    }
 }
