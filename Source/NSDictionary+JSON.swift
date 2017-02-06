@@ -25,3 +25,29 @@ extension NSDictionary {
         }
     }
 }
+
+
+extension Dictionary where Key: KeyDescription, Value: AnyObject {
+    func extract(key: Key) throws -> Value {
+        guard let result = self[key] else {
+            throw SerializationError.missing(key.name())
+        }
+        
+        return result
+    }
+    
+    func extract(key: Key) -> Value? {
+        return self[key]
+    }
+}
+
+protocol KeyDescription {
+    func name() -> String
+}
+
+
+extension String: KeyDescription  {
+    func name() -> String {
+        return self
+    }
+}
