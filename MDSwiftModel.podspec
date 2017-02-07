@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'MD-Extensions'
+  s.name = 'MDSwiftModel'
   s.version = '0.1'
   s.license = 'Proprietary'
   s.summary = 'Simple Model object loading framework for Swift projects'
