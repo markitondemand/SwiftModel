@@ -1,15 +1,10 @@
-//
-//  JSON_SwiftTests.swift
-//  JSON-SwiftTests
-//
-//  Created by Michael Leber on 2/3/17.
 //  Copyright © 2017 Markit. All rights reserved.
 //
 
 import XCTest
-@testable import MarkitDigitalJSON
+@testable import MDSwiftModel
 
-class JSON_SwiftTests: XCTestCase {
+class MDSwiftModelTests: XCTestCase {
     
     func testNoError() {
         let card = self.generateCard(suit: "Hearts", rank: "King")!
@@ -54,7 +49,7 @@ class JSON_SwiftTests: XCTestCase {
     
 }
 
-extension JSON_SwiftTests {
+extension MDSwiftModelTests {
     func generateCard(suit: String, rank: String) -> Card? {
         
         do {
