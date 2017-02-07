@@ -10,10 +10,10 @@
 		286545B21E45309D003964D0 /* MDSwiftModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286545A81E45309D003964D0 /* MDSwiftModel.framework */; };
 		286545B71E45309D003964D0 /* JSON_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545B61E45309D003964D0 /* JSON_SwiftTests.swift */; };
 		286545B91E45309D003964D0 /* JSON-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 286545AB1E45309D003964D0 /* JSON-Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		286545C81E4530DE003964D0 /* Legislator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C31E4530DE003964D0 /* Legislator.swift */; };
-		286545C91E4530DE003964D0 /* Legislator+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C41E4530DE003964D0 /* Legislator+JSON.swift */; };
 		286545CA1E4530DE003964D0 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C51E4530DE003964D0 /* Dictionary.swift */; };
-		286545CC1E4530DE003964D0 /* SunlightWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C71E4530DE003964D0 /* SunlightWebService.swift */; };
+		286545D41E4A92DA003964D0 /* Legislator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545D11E4A92DA003964D0 /* Legislator.swift */; };
+		286545D51E4A92DA003964D0 /* Legislator+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545D21E4A92DA003964D0 /* Legislator+JSON.swift */; };
+		286545D61E4A92DA003964D0 /* SunlightWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545D31E4A92DA003964D0 /* SunlightWebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,11 +33,11 @@
 		286545B11E45309D003964D0 /* MDSwiftModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MDSwiftModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		286545B61E45309D003964D0 /* JSON_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON_SwiftTests.swift; sourceTree = "<group>"; };
 		286545B81E45309D003964D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		286545C31E4530DE003964D0 /* Legislator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Legislator.swift; path = Source/Legislator.swift; sourceTree = "<group>"; };
-		286545C41E4530DE003964D0 /* Legislator+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Legislator+JSON.swift"; path = "Source/Legislator+JSON.swift"; sourceTree = "<group>"; };
 		286545C51E4530DE003964D0 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dictionary.swift; path = Source/Dictionary.swift; sourceTree = "<group>"; };
-		286545C71E4530DE003964D0 /* SunlightWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SunlightWebService.swift; path = Source/SunlightWebService.swift; sourceTree = "<group>"; };
 		286545CF1E4A89DC003964D0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		286545D11E4A92DA003964D0 /* Legislator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Legislator.swift; path = Example/Legislator.swift; sourceTree = "<group>"; };
+		286545D21E4A92DA003964D0 /* Legislator+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Legislator+JSON.swift"; path = "Example/Legislator+JSON.swift"; sourceTree = "<group>"; };
+		286545D31E4A92DA003964D0 /* SunlightWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SunlightWebService.swift; path = Example/SunlightWebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +109,9 @@
 		286545CD1E492CF4003964D0 /* Example Code */ = {
 			isa = PBXGroup;
 			children = (
-				286545C71E4530DE003964D0 /* SunlightWebService.swift */,
-				286545C31E4530DE003964D0 /* Legislator.swift */,
-				286545C41E4530DE003964D0 /* Legislator+JSON.swift */,
+				286545D11E4A92DA003964D0 /* Legislator.swift */,
+				286545D21E4A92DA003964D0 /* Legislator+JSON.swift */,
+				286545D31E4A92DA003964D0 /* SunlightWebService.swift */,
 			);
 			name = "Example Code";
 			sourceTree = "<group>";
@@ -237,10 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286545D61E4A92DA003964D0 /* SunlightWebService.swift in Sources */,
+				286545D41E4A92DA003964D0 /* Legislator.swift in Sources */,
+				286545D51E4A92DA003964D0 /* Legislator+JSON.swift in Sources */,
 				286545CA1E4530DE003964D0 /* Dictionary.swift in Sources */,
-				286545C81E4530DE003964D0 /* Legislator.swift in Sources */,
-				286545CC1E4530DE003964D0 /* SunlightWebService.swift in Sources */,
-				286545C91E4530DE003964D0 /* Legislator+JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
