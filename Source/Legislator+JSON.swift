@@ -20,6 +20,6 @@ extension Legislator {
 
         
         // 4 - optional two-step parameter
-        self.website = try jsonDict.extractOptionalURL(key: "website")
+        self.website = jsonDict.extractOptionalURL(key: "website")
     }
 }

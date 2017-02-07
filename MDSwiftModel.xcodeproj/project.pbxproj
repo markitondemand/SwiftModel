@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		286545B21E45309D003964D0 /* MarkitDigitalJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286545A81E45309D003964D0 /* MarkitDigitalJSON.framework */; };
+		286545B21E45309D003964D0 /* MDSwiftModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286545A81E45309D003964D0 /* MDSwiftModel.framework */; };
 		286545B71E45309D003964D0 /* JSON_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545B61E45309D003964D0 /* JSON_SwiftTests.swift */; };
 		286545B91E45309D003964D0 /* JSON-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 286545AB1E45309D003964D0 /* JSON-Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		286545C81E4530DE003964D0 /* Legislator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C31E4530DE003964D0 /* Legislator.swift */; };
 		286545C91E4530DE003964D0 /* Legislator+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C41E4530DE003964D0 /* Legislator+JSON.swift */; };
 		286545CA1E4530DE003964D0 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C51E4530DE003964D0 /* Dictionary.swift */; };
-		286545CB1E4530DE003964D0 /* NSDictionary+My Custom JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C61E4530DE003964D0 /* NSDictionary+My Custom JSON.swift */; };
 		286545CC1E4530DE003964D0 /* SunlightWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C71E4530DE003964D0 /* SunlightWebService.swift */; };
-		286545D01E4A89DC003964D0 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 286545CF1E4A89DC003964D0 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,16 +27,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		286545A81E45309D003964D0 /* MarkitDigitalJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkitDigitalJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		286545A81E45309D003964D0 /* MDSwiftModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDSwiftModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		286545AB1E45309D003964D0 /* JSON-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSON-Swift.h"; sourceTree = "<group>"; };
 		286545AC1E45309D003964D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		286545B11E45309D003964D0 /* JSON-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JSON-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		286545B11E45309D003964D0 /* MDSwiftModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MDSwiftModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		286545B61E45309D003964D0 /* JSON_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON_SwiftTests.swift; sourceTree = "<group>"; };
 		286545B81E45309D003964D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286545C31E4530DE003964D0 /* Legislator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Legislator.swift; path = Source/Legislator.swift; sourceTree = "<group>"; };
 		286545C41E4530DE003964D0 /* Legislator+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Legislator+JSON.swift"; path = "Source/Legislator+JSON.swift"; sourceTree = "<group>"; };
 		286545C51E4530DE003964D0 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dictionary.swift; path = Source/Dictionary.swift; sourceTree = "<group>"; };
-		286545C61E4530DE003964D0 /* NSDictionary+My Custom JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDictionary+My Custom JSON.swift"; path = "Source/NSDictionary+My Custom JSON.swift"; sourceTree = "<group>"; };
 		286545C71E4530DE003964D0 /* SunlightWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SunlightWebService.swift; path = Source/SunlightWebService.swift; sourceTree = "<group>"; };
 		286545CF1E4A89DC003964D0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				286545B21E45309D003964D0 /* MarkitDigitalJSON.framework in Frameworks */,
+				286545B21E45309D003964D0 /* MDSwiftModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				286545CE1E4A89CF003964D0 /* Documentation */,
-				286545CD1E492CF4003964D0 /* test */,
+				286545CD1E492CF4003964D0 /* Example Code */,
 				286545C21E4530D3003964D0 /* Source */,
 				286545AA1E45309D003964D0 /* JSON-Swift */,
 				286545B51E45309D003964D0 /* JSON-SwiftTests */,
@@ -77,8 +74,8 @@
 		286545A91E45309D003964D0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				286545A81E45309D003964D0 /* MarkitDigitalJSON.framework */,
-				286545B11E45309D003964D0 /* JSON-SwiftTests.xctest */,
+				286545A81E45309D003964D0 /* MDSwiftModel.framework */,
+				286545B11E45309D003964D0 /* MDSwiftModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,19 +102,18 @@
 			isa = PBXGroup;
 			children = (
 				286545C51E4530DE003964D0 /* Dictionary.swift */,
-				286545C61E4530DE003964D0 /* NSDictionary+My Custom JSON.swift */,
-				286545C71E4530DE003964D0 /* SunlightWebService.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
 		};
-		286545CD1E492CF4003964D0 /* test */ = {
+		286545CD1E492CF4003964D0 /* Example Code */ = {
 			isa = PBXGroup;
 			children = (
+				286545C71E4530DE003964D0 /* SunlightWebService.swift */,
 				286545C31E4530DE003964D0 /* Legislator.swift */,
 				286545C41E4530DE003964D0 /* Legislator+JSON.swift */,
 			);
-			name = test;
+			name = "Example Code";
 			sourceTree = "<group>";
 		};
 		286545CE1E4A89CF003964D0 /* Documentation */ = {
@@ -142,9 +138,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		286545A71E45309D003964D0 /* MarkitDigitalJSON */ = {
+		286545A71E45309D003964D0 /* MDSwiftModel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 286545BC1E45309D003964D0 /* Build configuration list for PBXNativeTarget "MarkitDigitalJSON" */;
+			buildConfigurationList = 286545BC1E45309D003964D0 /* Build configuration list for PBXNativeTarget "MDSwiftModel" */;
 			buildPhases = (
 				286545A31E45309D003964D0 /* Sources */,
 				286545A41E45309D003964D0 /* Frameworks */,
@@ -155,14 +151,14 @@
 			);
 			dependencies = (
 			);
-			name = MarkitDigitalJSON;
+			name = MDSwiftModel;
 			productName = "JSON-Swift";
-			productReference = 286545A81E45309D003964D0 /* MarkitDigitalJSON.framework */;
+			productReference = 286545A81E45309D003964D0 /* MDSwiftModel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		286545B01E45309D003964D0 /* JSON-SwiftTests */ = {
+		286545B01E45309D003964D0 /* MDSwiftModelTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 286545BF1E45309D003964D0 /* Build configuration list for PBXNativeTarget "JSON-SwiftTests" */;
+			buildConfigurationList = 286545BF1E45309D003964D0 /* Build configuration list for PBXNativeTarget "MDSwiftModelTests" */;
 			buildPhases = (
 				286545AD1E45309D003964D0 /* Sources */,
 				286545AE1E45309D003964D0 /* Frameworks */,
@@ -173,9 +169,9 @@
 			dependencies = (
 				286545B41E45309D003964D0 /* PBXTargetDependency */,
 			);
-			name = "JSON-SwiftTests";
+			name = MDSwiftModelTests;
 			productName = "JSON-SwiftTests";
-			productReference = 286545B11E45309D003964D0 /* JSON-SwiftTests.xctest */;
+			productReference = 286545B11E45309D003964D0 /* MDSwiftModelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -213,8 +209,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				286545A71E45309D003964D0 /* MarkitDigitalJSON */,
-				286545B01E45309D003964D0 /* JSON-SwiftTests */,
+				286545A71E45309D003964D0 /* MDSwiftModel */,
+				286545B01E45309D003964D0 /* MDSwiftModelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -241,12 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				286545D01E4A89DC003964D0 /* README.md in Sources */,
 				286545CA1E4530DE003964D0 /* Dictionary.swift in Sources */,
 				286545C81E4530DE003964D0 /* Legislator.swift in Sources */,
 				286545CC1E4530DE003964D0 /* SunlightWebService.swift in Sources */,
 				286545C91E4530DE003964D0 /* Legislator+JSON.swift in Sources */,
-				286545CB1E4530DE003964D0 /* NSDictionary+My Custom JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +257,7 @@
 /* Begin PBXTargetDependency section */
 		286545B41E45309D003964D0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 286545A71E45309D003964D0 /* MarkitDigitalJSON */;
+			target = 286545A71E45309D003964D0 /* MDSwiftModel */;
 			targetProxy = 286545B31E45309D003964D0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -381,7 +375,7 @@
 				INFOPLIST_FILE = "JSON-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.markit.JSON-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.markit.MDSwiftModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -402,7 +396,7 @@
 				INFOPLIST_FILE = "JSON-Swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.markit.JSON-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.markit.MDSwiftModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -447,7 +441,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		286545BC1E45309D003964D0 /* Build configuration list for PBXNativeTarget "MarkitDigitalJSON" */ = {
+		286545BC1E45309D003964D0 /* Build configuration list for PBXNativeTarget "MDSwiftModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				286545BD1E45309D003964D0 /* Debug */,
@@ -456,7 +450,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		286545BF1E45309D003964D0 /* Build configuration list for PBXNativeTarget "JSON-SwiftTests" */ = {
+		286545BF1E45309D003964D0 /* Build configuration list for PBXNativeTarget "MDSwiftModelTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				286545C01E45309D003964D0 /* Debug */,
