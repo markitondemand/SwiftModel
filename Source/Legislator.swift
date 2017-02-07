@@ -1,11 +1,11 @@
 import Foundation
 
-public enum Chamber: String, RawValueInitializable {
+public enum Chamber: String {
     case house = "house"
     case senate = "senate"
 }
 
-public enum Party: String, RawValueInitializable {
+public enum Party: String {
     case Democrat = "D"
     case Independent = "I"
     case Republican = "R"
