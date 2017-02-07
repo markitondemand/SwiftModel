@@ -3,20 +3,28 @@ import Foundation
 
 /// Error that occurred during deserialiation
 ///
-/// - missing: A required key was missing from the dictionary
-/// - invalid: <#invalid description#>
-/// - type: The expected type differred than what was deserialized
+/// - missing: A required key was missing from the dictionary. The exepcted key will be passed in the error
+/// - invalid:
+/// - type: The expected type differs from what was deserialized from the dictionary. e.g. (you expect an integer, but a String is deserialized. this error will be raised)
 public enum SerializationError: Error {
     case missing(String)
     case invalid(String, Any)
+    // TOOD: pass the expected and actual types back
     case type
 }
 
-
+// TODO: Build trasnformers that can automagically try to transform the JSON type to a Generic type (i.e. ideally this can detect, JSON has a String and is being set to a URL property, try to URLize it.
 extension Dictionary where Key: KeyDescription {
+    
+    
+    /// Extracts a raw JSON type from the dictionary. If
+    ///
+    /// - Parameter key: <#key description#>
+    /// - Returns: <#return value description#>
+    /// - Throws: <#throws value description#>
     public func extract<T>(key: Key) throws -> T {
         guard (self[key] != nil) else {
-            throw SerializationError.missing(key.name())
+            throw SerializationError.missing(key.name)
         }
         guard let result = self[key] as? T else {
             throw SerializationError.type
@@ -26,8 +34,7 @@ extension Dictionary where Key: KeyDescription {
     }
     
     
-    // Note - This needs to have a different name as the compiler is tripped up with "Ambiguous" when using the optional return variant
-    /// <#Description#>
+    /// Optionally extracts a raw type. If the value cann
     ///
     /// - Parameter key: <#key description#>
     /// - Returns: <#return value description#>
@@ -42,7 +49,13 @@ extension Dictionary where Key: KeyDescription {
         return result
     }
     
-    public func extractTransformedToURL(key: Key) throws -> URL {
+    
+    /// Extracts a value and attempts to create a URL out of it. If the key is missing, or 
+    ///
+    /// - Parameter key: <#key description#>
+    /// - Returns: <#return value description#>
+    /// - Throws: <#throws value description#>
+    public func extractURL(key: Key) throws -> URL {
         let value: String = try self.extract(key: key)
         
         guard let URL = URL(string: value) else {
@@ -52,10 +65,47 @@ extension Dictionary where Key: KeyDescription {
         return URL
     }
     
+    
+    /// <#Description#>
+    ///
+    /// - Parameter key: <#key description#>
+    /// - Returns: <#return value description#>
+    public func extractOptionalURL(key: Key) -> URL? {
+        guard let value: String = self.extractOptional(key: key) else {
+            return nil
+        }
+        
+        guard let URL = URL(string: value) else {
+            return nil
+        }
+        
+        return URL
+    }
+    
+    /// Attempt to extract an Enum from the JSON directly. This will attempt to create an Enum value, otherwise a SerializationError will be thrown
+    ///
+    /// - Parameter key: The key to extract
+    /// - Returns: An initialized enum value.
+    /// - Throws: Throws a SerializationError
     func extractEnum<T: RawRepresentable>(key: Key) throws -> T {
         let paramRaw: T.RawValue = try self.extract(key: key)
         guard let param = T(rawValue :paramRaw) else {
-            throw SerializationError.invalid(key.name(), paramRaw)
+            throw SerializationError.invalid(key.name, paramRaw)
+        }
+        return param
+    }
+    
+    
+    /// Attempt to extract an Enum fro mthe JSON directly. This will attempt to create an Enum value, otherwise nil will be returned
+    ///
+    /// - Parameter key: The key to extract
+    /// - Returns: A created Enum value, or nil if no enum could be found or created
+    func extractOptionalEnum<T: RawRepresentable>(key: Key) -> T? {
+        guard let paramRaw: T.RawValue = self.extractOptional(key: key) else {
+            return nil
+        }
+        guard let param = T(rawValue :paramRaw) else {
+            return nil
         }
         return param
     }
@@ -77,7 +127,8 @@ extension Dictionary where Key: KeyDescription {
 
 // MARK: - Helper extension used for printing key names in errors where a key is missing
 public protocol KeyDescription: Hashable {
-    func name() -> String
+    /// Return the name of the JSON key
+    var name: String { get }
 }
 
 public protocol Transformable {
@@ -89,20 +140,16 @@ public protocol Transformable {
 
 // MARK: - If something fails to implement this we handle it with the following
 extension KeyDescription {
-    func name() -> String {
-        return "Unknown name"
+    public var name: String {
+        get { return "Unknown name" }
     }
 }
 
 
 // MARK: - Default implementation for String of KeyDescription
-extension String: KeyDescription  {
-    public func name() -> String {
-        return self
-    }
-    
-    public func testing() {
-        print("testing")
+extension String: KeyDescription {
+    public var name: String {
+        get { return self }
     }
 }
     

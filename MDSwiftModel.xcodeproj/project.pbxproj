@@ -15,6 +15,7 @@
 		286545CA1E4530DE003964D0 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C51E4530DE003964D0 /* Dictionary.swift */; };
 		286545CB1E4530DE003964D0 /* NSDictionary+My Custom JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C61E4530DE003964D0 /* NSDictionary+My Custom JSON.swift */; };
 		286545CC1E4530DE003964D0 /* SunlightWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545C71E4530DE003964D0 /* SunlightWebService.swift */; };
+		286545D01E4A89DC003964D0 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 286545CF1E4A89DC003964D0 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		286545C51E4530DE003964D0 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dictionary.swift; path = Source/Dictionary.swift; sourceTree = "<group>"; };
 		286545C61E4530DE003964D0 /* NSDictionary+My Custom JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDictionary+My Custom JSON.swift"; path = "Source/NSDictionary+My Custom JSON.swift"; sourceTree = "<group>"; };
 		286545C71E4530DE003964D0 /* SunlightWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SunlightWebService.swift; path = Source/SunlightWebService.swift; sourceTree = "<group>"; };
+		286545CF1E4A89DC003964D0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		2865459E1E45309D003964D0 = {
 			isa = PBXGroup;
 			children = (
+				286545CE1E4A89CF003964D0 /* Documentation */,
 				286545CD1E492CF4003964D0 /* test */,
 				286545C21E4530D3003964D0 /* Source */,
 				286545AA1E45309D003964D0 /* JSON-Swift */,
@@ -115,6 +118,14 @@
 				286545C41E4530DE003964D0 /* Legislator+JSON.swift */,
 			);
 			name = test;
+			sourceTree = "<group>";
+		};
+		286545CE1E4A89CF003964D0 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				286545CF1E4A89DC003964D0 /* README.md */,
+			);
+			name = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,7 +201,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 286545A21E45309D003964D0 /* Build configuration list for PBXProject "JSON-Swift" */;
+			buildConfigurationList = 286545A21E45309D003964D0 /* Build configuration list for PBXProject "MDSwiftModel" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -230,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286545D01E4A89DC003964D0 /* README.md in Sources */,
 				286545CA1E4530DE003964D0 /* Dictionary.swift in Sources */,
 				286545C81E4530DE003964D0 /* Legislator.swift in Sources */,
 				286545CC1E4530DE003964D0 /* SunlightWebService.swift in Sources */,
@@ -426,7 +438,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		286545A21E45309D003964D0 /* Build configuration list for PBXProject "JSON-Swift" */ = {
+		286545A21E45309D003964D0 /* Build configuration list for PBXProject "MDSwiftModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				286545BA1E45309D003964D0 /* Debug */,

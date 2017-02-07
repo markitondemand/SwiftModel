@@ -11,19 +11,7 @@ import XCTest
 
 class JSON_SwiftTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testNoError() {
-        
-
         let card = self.generateCard(suit: "Hearts", rank: "King")!
         XCTAssertNotNil(card)
     }
@@ -51,6 +39,17 @@ class JSON_SwiftTests: XCTestCase {
         XCTAssertThrowsError(_ = try json.extractEnum(key: "rank") as Card.Rank) { error in
             
         }
+        
+        let optionalEnum: Card.Rank? = json.extractOptionalEnum(key: "rank")
+        XCTAssertNil(optionalEnum)
+    }
+    
+    func testTransformsJSONTypeToURL() {
+        let json: [String: Any] = ["URL":"http://www.google.com",
+                                   "malformed":123]
+        
+        XCTAssertEqual(URL(string: "http://www.google.com"), try! json.extractURL(key: "URL"))
+        XCTAssertNil(json.extractOptionalURL(key: "malformed"))
     }
     
 }
