@@ -24,20 +24,18 @@ class JSON_SwiftTests: XCTestCase {
     func testNoError() {
         
 
-        let card = self.defaultCard()!
-        
-        XCTAssertEqual(card.backColor, "Red")
-        XCTAssertEqual(card.deckSize, 52)
+        let card = self.generateCard(suit: "Hearts", rank: "King")!
+        XCTAssertNotNil(card)
     }
     
     func testMissingRequiredKeys() {
-        let missing = ["backColor": "Red"]
+        let missing = ["suit": "Hearts"]
         
         do {
             let _ = try Card(json: missing)
         }
         catch SerializationError.missing(let key) {
-            XCTAssertEqual(key, "size")
+            XCTAssertEqual(key, "rank")
         }
         catch {
             XCTFail("Incorrect error thrown")
@@ -45,43 +43,45 @@ class JSON_SwiftTests: XCTestCase {
     }
     
     func testTransformsValueToEnum() {
-        var json: [String: Any] = ["webSite": "http://www.google.com",
-                    "backColor": "Red",
-                    "size": 52,
-                    "suit":"Hearts"]
-        
-        
+        let json: [String: Any] = ["suit":"Hearts",
+                                   "rank":"Unknown"]
         let transformed: Card.Suit = try! json.extractEnum(key: "suit")
+        
         XCTAssertEqual(transformed, Card.Suit.Hearts)
-        
-        json = ["webSite": "http://www.google.com",
-                 "backColor": "Red",
-                 "size": 52,
-                 "suit":"Trapazoids"]
-        
+        XCTAssertThrowsError(_ = try json.extractEnum(key: "rank") as Card.Rank) { error in
+            
+        }
     }
     
-    
-    func defaultCard() -> Card? {
+}
 
-        
-        let json = ["backColor": "Red",
-                    "size": 52,
-                    "webSite": "http://www.cardgames.com",
-                    "suit": "hearts"] as [String : Any]
-        let card: Card!
+extension JSON_SwiftTests {
+    func generateCard(suit: String, rank: String) -> Card? {
         
         do {
-            card = try Card(json: json)
-            return card
+            return try Card(json: ["suit":suit, "rank":rank])
+        } catch _ {
+            XCTFail("Caught an error.")
         }
-        catch {
-            XCTFail("caught an error - \(error)")
-            return nil
-        }
+        return nil
     }
 }
 
+// Assume we have a dictionary that represents a deck of cards.
+/**
+{
+    "deck": {
+        "website": "http://www.cardgames.com", // optional
+        "deckBackColor":"Red",
+        "cards":[
+            {
+                "suit": "Hearts",
+                "cardValue":"King"
+            }
+        ]
+    }
+}
+*/
 class Card {
     enum Suit: String {
         case Hearts
@@ -90,18 +90,30 @@ class Card {
         case Spades
     }
     
-    // Optional
-    let backColor: String?
+    enum Rank: String {
+        case Two
+        case Three
+        case Four
+        case Five
+        case Six
+        case Seven
+        case Eight
+        case Nine
+        case Ten
+        case Jack
+        case Queen
+        case King
+        case Ace
+        
+    }
+    
     // Non optional
-    let deckSize: Int
-    let webSite: URL
     let suit: Suit
+    let rank: Rank
     
     
     init(json: Dictionary<String, Any>) throws {
-        backColor = json.extractOptional(key: "backColor")
-        deckSize = try json.extract(key: "size")
-        webSite = try json.extractTransformedToURL(key: "webSite")
         suit = try json.extractEnum(key: "suit")
+        rank = try json.extractEnum(key: "rank")
     }
 }

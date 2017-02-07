@@ -61,19 +61,19 @@ extension Dictionary where Key: KeyDescription {
     }
 }
 
-extension Dictionary where Key: KeyDescription, Value: Transformable {
-    public func extractTransformed<Result>(key: Key) throws -> Result {
-        
-        let value: Value = try self.extract(key: key)
-        
-//        let transformedValue = value.transformFromJSON()
-        if let transformable = value.transformFromJSON() as? Result {
-            // TOOD: clean up errors
-            return transformable
-        }
-        throw SerializationError.type
-    }
-}
+//extension Dictionary where Key: KeyDescription, Value: Transformable {
+//    public func extractTransformed<Result>(key: Key) throws -> Result {
+//        
+//        let value: Value = try self.extract(key: key)
+//        
+////        let transformedValue = value.transformFromJSON()
+//        if let transformable = value.transformFromJSON() as? Result {
+//            // TOOD: clean up errors
+//            return transformable
+//        }
+//        throw SerializationError.type
+//    }
+//}
 
 // MARK: - Helper extension used for printing key names in errors where a key is missing
 public protocol KeyDescription: Hashable {
