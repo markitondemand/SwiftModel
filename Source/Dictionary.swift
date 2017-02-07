@@ -19,9 +19,9 @@ extension Dictionary where Key: KeyDescription {
     
     /// Extracts a raw JSON type from the dictionary. If
     ///
-    /// - Parameter key: <#key description#>
-    /// - Returns: <#return value description#>
-    /// - Throws: <#throws value description#>
+    /// - Parameter key: The key to extract
+    /// - Returns: The native JSON value, if possible. If the type does not match, or the value is missing a SerializationError is thrown
+    /// - Throws: If the key is missing, SerializationError,missing is thrown passing the key, if the type does not match SerializationError.type is thrown
     public func extract<T>(key: Key) throws -> T {
         guard (self[key] != nil) else {
             throw SerializationError.missing(key.name)
@@ -36,8 +36,8 @@ extension Dictionary where Key: KeyDescription {
     
     /// Optionally extracts a raw type. If the value cann
     ///
-    /// - Parameter key: <#key description#>
-    /// - Returns: <#return value description#>
+    /// - Parameter key: The key to extract
+    /// - Returns: The native JSON value, or nil if the type does not match, or the value is missing
     public func extractOptional<T>(key: Key) -> T? {
         guard (self[key] != nil) else {
             return nil
@@ -50,11 +50,11 @@ extension Dictionary where Key: KeyDescription {
     }
     
     
-    /// Extracts a value and attempts to create a URL out of it. If the key is missing, or 
+    /// Extracts a value and attempts to create a URL out of it. If the key is missing, or a URL cannot be generated a SerializationError is thrown
     ///
-    /// - Parameter key: <#key description#>
-    /// - Returns: <#return value description#>
-    /// - Throws: <#throws value description#>
+    /// - Parameter key: The key to extract
+    /// - Returns: A URL formed from a String in the JSON
+    /// - Throws: SerializationError if a URL could not be created
     public func extractURL(key: Key) throws -> URL {
         let value: String = try self.extract(key: key)
         
@@ -66,10 +66,10 @@ extension Dictionary where Key: KeyDescription {
     }
     
     
-    /// <#Description#>
+    /// Extracts a value and attempts to create a URL out of it. If the key is missing, or aURL cannot be generated nil is returned
     ///
-    /// - Parameter key: <#key description#>
-    /// - Returns: <#return value description#>
+    /// - Parameter key: The key to extract
+    /// - Returns: A valid URL, or nil if a URL could not be created
     public func extractOptionalURL(key: Key) -> URL? {
         guard let value: String = self.extractOptional(key: key) else {
             return nil
@@ -111,34 +111,14 @@ extension Dictionary where Key: KeyDescription {
     }
 }
 
-//extension Dictionary where Key: KeyDescription, Value: Transformable {
-//    public func extractTransformed<Result>(key: Key) throws -> Result {
-//        
-//        let value: Value = try self.extract(key: key)
-//        
-////        let transformedValue = value.transformFromJSON()
-//        if let transformable = value.transformFromJSON() as? Result {
-//            // TOOD: clean up errors
-//            return transformable
-//        }
-//        throw SerializationError.type
-//    }
-//}
 
-// MARK: - Helper extension used for printing key names in errors where a key is missing
+// MARK: - KeyDescription Extension
 public protocol KeyDescription: Hashable {
     /// Return the name of the JSON key
     var name: String { get }
 }
 
-public protocol Transformable {
-    associatedtype Object
-//    associatedtype JSON
-    func transformFromJSON() -> Object
-//    func transformToJSON() -> JSON
-}
-
-// MARK: - If something fails to implement this we handle it with the following
+// Base implementation
 extension KeyDescription {
     public var name: String {
         get { return "Unknown name" }
@@ -146,7 +126,7 @@ extension KeyDescription {
 }
 
 
-// MARK: - Default implementation for String of KeyDescription
+// Default impklementaiton of String adopting KeyDescription
 extension String: KeyDescription {
     public var name: String {
         get { return self }
