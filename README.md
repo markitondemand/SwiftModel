@@ -5,6 +5,7 @@ MDSwiftModel
 
 # Attributions #
 Original idea and implementation with NSDictionary by Drew Christensen
+
 Modified and updated to work with Dictionary by Michael Leber
 
 # Questions
@@ -12,13 +13,18 @@ Modified and updated to work with Dictionary by Michael Leber
 This is a way to help create Swift model classes and structs from JSON object data. It is an alternative to some found online (i.e. ObjectMapper), and is grown in house to ensure better maintenance.
 
 ## How do I use this? ##
-Currently this library is one extension on the Dictionary class
+Currently this is implemented as an extension on the Swift "Dictionary" struct. There a few methods aimed at safely extracting values of the correct type(s) to your functions and throwing errors that make sense in the event there is an issue. Also supports creating Enum types directly from a string or int in the dictionary.
+
+The way to use this is to create an extension on your model class that has an initializer with the form `init(jsonDict: Dictionary<String, Any>) throws`, than call the appropriate Dictionary extension methods you need in the constructor. All throws will be propogated up to something like your web service class where you can handle errors. 
+
+Please take a look at Legislator.swift, Legislator+JSON.swift and SunlightWebService.swift for example usage 
 
 
 # Future Enhancements Needed ##
 - Baseline trasnformers to transform raw JSON to Swift objects. (Doing this will likely result in the removal of the "extractURL" and "extractEnum" methods and just use the "extract" method. This will convert to the expected type using a transformer, or raise an error of "no transformation avaialble for xyz, please provide your own")
+    - maybe even `extract(key: Key, usingStrategy:(closure here that takes the extracted "U" value and returns "T" transformed value) -> T)`
     - String->URL
-    - String->Color (decide on format, e.g. 'RRGGBB')
+- String->Color (decide on format, e.g. 'RRGGBB')
     - String->Date (MSDate, and / or ISO Date if possible to support both)
     - Ability to add your own for project specific types of transforming
 - Support for cascading sub objects.
