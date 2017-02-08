@@ -12,7 +12,7 @@
 		286545D41E4A92DA003964D0 /* Legislator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545D11E4A92DA003964D0 /* Legislator.swift */; };
 		286545D51E4A92DA003964D0 /* Legislator+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545D21E4A92DA003964D0 /* Legislator+JSON.swift */; };
 		286545D61E4A92DA003964D0 /* SunlightWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545D31E4A92DA003964D0 /* SunlightWebService.swift */; };
-		286545DA1E4A932E003964D0 /* JSON-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 286545D81E4A932E003964D0 /* JSON-Swift.h */; };
+		286545DA1E4A932E003964D0 /* MDSwiftModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 286545D81E4A932E003964D0 /* MDSwiftModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		286545DE1E4A9352003964D0 /* MDSwiftModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286545DC1E4A9352003964D0 /* MDSwiftModelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,7 @@
 		286545D21E4A92DA003964D0 /* Legislator+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Legislator+JSON.swift"; path = "Example/Legislator+JSON.swift"; sourceTree = "<group>"; };
 		286545D31E4A92DA003964D0 /* SunlightWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SunlightWebService.swift; path = Example/SunlightWebService.swift; sourceTree = "<group>"; };
 		286545D71E4A932E003964D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
-		286545D81E4A932E003964D0 /* JSON-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "JSON-Swift.h"; path = "Supporting Files/JSON-Swift.h"; sourceTree = SOURCE_ROOT; };
+		286545D81E4A932E003964D0 /* MDSwiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDSwiftModel.h; path = "Supporting Files/MDSwiftModel.h"; sourceTree = SOURCE_ROOT; };
 		286545DB1E4A9352003964D0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		286545DC1E4A9352003964D0 /* MDSwiftModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDSwiftModelTests.swift; path = Tests/MDSwiftModelTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -65,8 +65,8 @@
 				286545CE1E4A89CF003964D0 /* Documentation */,
 				286545CD1E492CF4003964D0 /* Example Code */,
 				286545C21E4530D3003964D0 /* Source */,
-				286545AA1E45309D003964D0 /* JSON-Swift */,
-				286545B51E45309D003964D0 /* JSON-SwiftTests */,
+				286545AA1E45309D003964D0 /* MDSwiftModel */,
+				286545B51E45309D003964D0 /* MDSwiftModelTests */,
 				286545A91E45309D003964D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,21 +80,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		286545AA1E45309D003964D0 /* JSON-Swift */ = {
+		286545AA1E45309D003964D0 /* MDSwiftModel */ = {
 			isa = PBXGroup;
 			children = (
 				286545D71E4A932E003964D0 /* Info.plist */,
-				286545D81E4A932E003964D0 /* JSON-Swift.h */,
+				286545D81E4A932E003964D0 /* MDSwiftModel.h */,
 			);
+			name = MDSwiftModel;
 			path = "JSON-Swift";
 			sourceTree = "<group>";
 		};
-		286545B51E45309D003964D0 /* JSON-SwiftTests */ = {
+		286545B51E45309D003964D0 /* MDSwiftModelTests */ = {
 			isa = PBXGroup;
 			children = (
 				286545DB1E4A9352003964D0 /* Info.plist */,
 				286545DC1E4A9352003964D0 /* MDSwiftModelTests.swift */,
 			);
+			name = MDSwiftModelTests;
 			path = "JSON-SwiftTests";
 			sourceTree = "<group>";
 		};
@@ -131,7 +133,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				286545DA1E4A932E003964D0 /* JSON-Swift.h in Headers */,
+				286545DA1E4A932E003964D0 /* MDSwiftModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
