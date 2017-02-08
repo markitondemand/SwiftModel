@@ -16,8 +16,8 @@ open class SunlightWebService {
                 print("\n")
                 do {
                     if let data = data,
-                        let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary,
-                        let members = jsonObject["results"] as? [NSDictionary] {
+                        let jsonObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String, Any>,
+                        let members = jsonObject["results"] as? [Dictionary<String, Any>] {
                         var legislators: [Legislator] = []
                         for member in members {
                             do {
