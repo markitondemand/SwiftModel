@@ -11,7 +11,7 @@ class MDSwiftModelTests: XCTestCase {
         XCTAssertNotNil(card)
     }
     
-    func testMissingRequiredKeys() {
+    func testErrorMissingKey() {
         let missing = ["suit": "Hearts"]
         
         do {
@@ -24,6 +24,42 @@ class MDSwiftModelTests: XCTestCase {
             XCTFail("Incorrect error thrown")
         }
     }
+    
+    func testErrorTypeMismatch() {
+        let json = ["string": 42]
+        do {
+            let _: String = try json.extract(key: "string")
+        }
+        catch SerializationError.typeMismatch {
+            // Pass if we get here
+            return
+        }
+        catch {
+            XCTFail("Incorrect erorr thrown")
+        }
+        XCTFail("No error was thrown")
+    }
+    
+    func testErrorInvalid() {
+        enum Test: String {
+            case Case
+        }
+        
+        let json = ["EnumKey":"Enum"]
+        do {
+            let _: Test = try json.extractEnum(key: "EnumKey")
+        }
+        catch SerializationError.invalid(let tuple) {
+            XCTAssertEqual(tuple.0, "EnumKey")
+            XCTAssertEqual(tuple.1 as! String, "Enum")
+            return
+        }
+        catch {
+            XCTFail("Incorrect error thrown")
+        }
+        XCTFail("No error was thrown")
+    }
+    
     
     func testTransformsValueToEnum() {
         let json: [String: Any] = ["suit":"Hearts",
@@ -47,6 +83,13 @@ class MDSwiftModelTests: XCTestCase {
         XCTAssertNil(json.extractOptionalURL(key: "malformed"))
     }
     
+    func testFallBack() {
+        let json: [String: Any] = ["key":"value"]
+        
+        XCTAssertEqual(json.extract(key: "key", fallBack: "This should not happen"), "value")
+        XCTAssertEqual(json.extract(key: "missingKey", fallBack: "This should happen"), "This should happen")
+    }
+    
 }
 
 extension MDSwiftModelTests {
@@ -61,18 +104,12 @@ extension MDSwiftModelTests {
     }
 }
 
-// Assume we have a dictionary that represents a deck of cards.
+// Assume we have a dictionary that represents a playing card.
 /**
 {
-    "deck": {
-        "website": "http://www.cardgames.com", // optional
-        "deckBackColor":"Red",
-        "cards":[
-            {
-                "suit": "Hearts",
-                "cardValue":"King"
-            }
-        ]
+    {
+        "suit": "Hearts",
+        "cardValue":"King"
     }
 }
 */
@@ -104,7 +141,6 @@ class Card {
     // Non optional
     let suit: Suit
     let rank: Rank
-    
     
     init(json: Dictionary<String, Any>) throws {
         suit = try json.extractEnum(key: "suit")
