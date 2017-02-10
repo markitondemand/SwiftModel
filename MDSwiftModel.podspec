@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'MDSwiftModel'
-  s.version = '0.1'
+  s.version = '0.2'
   s.license = 'Proprietary'
   s.summary = 'Simple Model object loading framework for Swift projects'
   s.homepage = 'https://stash.mgmt.local/projects/IOSLIB/repos/mdswiftmodel/'

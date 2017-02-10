@@ -4,7 +4,7 @@ import Foundation
 /// Error that occurred during deserialiation
 ///
 /// - missing: A required key was missing from the dictionary. The exepcted key will be passed in the error
-/// - invalid: 
+/// - invalid: Currently, this is sent if it is not possible to create an associated enum value from the input JSON. The key and value from the JSON are sent in the error
 /// - type: The expected type differs from what was deserialized from the dictionary. e.g. (you expect an integer, but a String is deserialized. this error will be raised)
 public enum SerializationError: Error {
     case missing(String)
@@ -100,7 +100,7 @@ extension Dictionary where Key: JSONKey {
     /// - Parameter key: The key to extract
     /// - Returns: An initialized enum value.
     /// - Throws: Throws a SerializationError
-    func extractEnum<T: RawRepresentable>(key: Key) throws -> T {
+    public func extractEnum<T: RawRepresentable>(key: Key) throws -> T {
         let paramRaw: T.RawValue = try self.extract(key: key)
         guard let param = T(rawValue :paramRaw) else {
             throw SerializationError.invalid(key.name, paramRaw)
@@ -113,7 +113,7 @@ extension Dictionary where Key: JSONKey {
     ///
     /// - Parameter key: The key to extract
     /// - Returns: A created Enum value, or nil if no enum could be found or created
-    func extractOptionalEnum<T: RawRepresentable>(key: Key) -> T? {
+    public func extractOptionalEnum<T: RawRepresentable>(key: Key) -> T? {
         guard let paramRaw: T.RawValue = self.extractOptional(key: key) else {
             return nil
         }
